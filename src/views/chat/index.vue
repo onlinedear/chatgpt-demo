@@ -62,7 +62,7 @@ dataSources.value.forEach((item, index) => {
 
 // 监听发送消息
 async function handleSubmit() {
-  if (!localStorage.getItem("access_token")) return message.error("请先登录哦～");
+  // if (!localStorage.getItem("access_token")) return message.error("请先登录哦～");
   onConversation();
 }
 
@@ -109,18 +109,18 @@ async function onConversation() {
   // 请求接口获取回复信息
   try {
     let lastText = "";
-    const token = localStorage.getItem("access_token");
+    // const token = localStorage.getItem("access_token");
     source = axios.CancelToken.source();
 
     const fetchChatAPIOnce = async () => {
       await axios({
-        url: "https://jyf6wk.laf.dev/send",
+        url: "https://???.laf.dev/???",
         method: "post",
         data: { message, parentMessageId: parentMessageId.value },
         responseType: "text",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        // headers: {
+        //   Authorization: `Bearer ${token}`,
+        // },
         cancelToken: source?.token,
         onDownloadProgress: ({ event }) => {
           const xhr = event.target;
@@ -157,7 +157,7 @@ async function onConversation() {
           }
         },
       }).then(() => {
-        getAmount();
+        // getAmount();
       });
 
       updateChatSome(+uuid, dataSources.value.length - 1, { loading: false });
@@ -229,17 +229,17 @@ async function onRegenerate(index: number) {
 
   try {
     let lastText = "";
-    const token = localStorage.getItem("access_token");
+    // const token = localStorage.getItem("access_token");
 
     const fetchChatAPIOnce = async () => {
       await axios({
-        url: "https://jyf6wk.laf.dev/send",
+        url: "https://???.laf.dev/???",
         method: "post",
         data: { message, parentMessageId: parentMessageId.value },
         responseType: "text",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        // headers: {
+        //   Authorization: `Bearer ${token}`,
+        // },
         cancelToken: source?.token,
         onDownloadProgress: ({ event }) => {
           const xhr = event.target;
@@ -276,7 +276,7 @@ async function onRegenerate(index: number) {
           }
         },
       }).then(() => {
-        getAmount();
+        // getAmount();
       });
       updateChatSome(+uuid, dataSources.value.length - 1, { loading: false });
     };
@@ -314,11 +314,11 @@ function handleStop() {
 }
 
 // 获取用户剩余次数
-async function getAmount() {
-  if (!localStorage.getItem("access_token")) return;
-  const res = await cloud.invoke("get-amount");
-  myStore.changeAmount(res.amount);
-}
+// async function getAmount() {
+//   if (!localStorage.getItem("access_token")) return;
+//   const res = await cloud.invoke("get-amount");
+//   myStore.changeAmount(res.amount);
+// }
 
 function handleDelete(index: number) {
   if (loading.value) return;
