@@ -114,7 +114,7 @@ async function onConversation() {
 
     const fetchChatAPIOnce = async () => {
       await axios({
-        url: "https://???.laf.dev/???",
+        url: "https://bard.ai-art.com.cn",
         method: "post",
         data: { message, parentMessageId: parentMessageId.value },
         responseType: "text",
@@ -233,7 +233,7 @@ async function onRegenerate(index: number) {
 
     const fetchChatAPIOnce = async () => {
       await axios({
-        url: "https://???.laf.dev/???",
+        url: "https://bard.ai-art.com.cn",
         method: "post",
         data: { message, parentMessageId: parentMessageId.value },
         responseType: "text",
